@@ -31,6 +31,8 @@ clean_data <- data %>%
 clean_data <- clean_data %>%
   mutate(InvoiceDate = ymd_hms(InvoiceDate))  # if it's in "day-month-year hour:min" format
 
+# Save cleaned data to a CSV file inside the cleaned_data folder
+write_csv(clean_data, "C:/Users/lesle/source/repos/DataquestRcSys2025/cleaned_data/clean_data.csv")
 
 # Top 10 most purchased products
 clean_data %>%
