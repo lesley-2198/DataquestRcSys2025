@@ -35,14 +35,17 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 - ✅ **Data cleaning** using R (missing values, returns, invalid prices)
 - ✅ **Exploratory Data Analysis** (top products, top customers, quantity distributions)
 - ✅ **Popularity-based recommendation** (global and group-specific)
-- ✅ **User-based Collaborative Filtering** (UBCF) using R's `recommenderlab`
+- ✅ **Implemented User-based Collaborative Filtering** (UBCF) using R's `recommenderlab`
+- ✅ **Evaluated UBCF recommender** (precision, recall)
+- ✅ **Implemented Item-Based Collaborative Filtering** (IBCF) using R's `recommenderlab`
 
 ---
 
 ## 🔜 Upcoming Tasks
 
-- [ ] Evaluate UBCF recommender (precision, recall)
-- [ ] Implement Item-Based Collaborative Filtering (IBCF)
+
+- [ ] Evaluate IBCF recommender
+- [ ] Compare the two CF recommender systems
 - [ ] Build hybrid recommender systems (R + Python)
 - [ ] Incorporate Python logic (matrix factorization or ensemble logic)
 - [ ] Visualize performance comparisons
