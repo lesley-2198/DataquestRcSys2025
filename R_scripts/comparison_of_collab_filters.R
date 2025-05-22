@@ -17,13 +17,20 @@ comparison_results <- evaluate(
   n = c(1, 3, 5, 10)
 )
 
+# Get values from the row where n == 5
+ubcf_at_5 <- ubcf_summary[ubcf_summary[, "n"] == 5, ]
+ibcf_at_5 <- ibcf_summary[ibcf_summary[, "n"] == 5, ]
+
+# Combine into a comparison data frame
 comparison_df <- data.frame(
   Model = c("UBCF", "IBCF"),
-  Precision_at_5 = c(ubcf_summary["precision", "5"], ibcf_summary["precision", "5"]),
-  Recall_at_5 = c(ubcf_summary["recall", "5"], ibcf_summary["recall", "5"]),
-  TPR_at_5 = c(ubcf_summary["TPR", "5"], ibcf_summary["TPR", "5"]),
-  FPR_at_5 = c(ubcf_summary["FPR", "5"], ibcf_summary["FPR", "5"])
+  Precision_at_5 = c(ubcf_at_5["precision"], ibcf_at_5["precision"]),
+  Recall_at_5 = c(ubcf_at_5["recall"], ibcf_at_5["recall"]),
+  TPR_at_5 = c(ubcf_at_5["TPR"], ibcf_at_5["TPR"]),
+  FPR_at_5 = c(ubcf_at_5["FPR"], ibcf_at_5["FPR"])
 )
+
+print(comparison_df)
 
 
 # Generate summary stats
