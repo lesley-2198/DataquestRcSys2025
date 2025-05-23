@@ -13,19 +13,15 @@ eval_scheme <- evaluationScheme(binary_matrix, method = "split", train = 0.8, gi
 
 #Train the model on the training set
 ubcf_model <- Recommender(getData(eval_scheme, "train"), method = "UBCF")
-ibcf_model <- Recommender(getData(eval_scheme, "train"), method = "IBCF")
 
 #Make predictions on the test set
 ubcf_predictions <- predict(ubcf_model, getData(eval_scheme, "known"), type = "topNList", n = 5)
-ibcf_predictions <- predict(ibcf_model, getData(eval_scheme, "known"), type = "topNList", n = 5)
 
 #Evaluate the predictions
 ubcf_eval_results <- evaluate(eval_scheme, method = "UBCF", type = "topNList", n = c(1, 3, 5, 10))
-ibcf_eval_results <- evaluate(eval_scheme, method = "IBCF", type = "topNList", n = c(1, 3, 5, 10))
 
 # View summary of evaluation (precision, recall, etc.)
 avg(ubcf_eval_results)
-avg(ibcf_eval_results)
 
 # Optional: plot the results
 plot(eval_results, annotate = TRUE, legend = "topleft")
