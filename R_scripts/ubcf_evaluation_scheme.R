@@ -24,7 +24,7 @@ ubcf_eval_results <- evaluate(eval_scheme, method = "UBCF", type = "topNList", n
 avg(ubcf_eval_results)
 
 # Optional: plot the results
-plot(eval_results, annotate = TRUE, legend = "topleft")
+plot(ubcf_eval_results, annotate = TRUE, legend = "topleft")
 
 
 print(item_matrix)

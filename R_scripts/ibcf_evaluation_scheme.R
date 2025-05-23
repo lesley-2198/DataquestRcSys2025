@@ -9,7 +9,7 @@ rownames(item_matrix) <- user_item_matrix$CustomerID
 binary_matrix <- as(item_matrix, "binaryRatingMatrix")
 
 
-ibcf_eval_scheme <- evaluationScheme(
+eval_scheme <- evaluationScheme(
   binary_matrix,
   method = "split",
   train = 0.8,
@@ -20,21 +20,21 @@ ibcf_eval_scheme <- evaluationScheme(
 
 
 ibcf_model <- Recommender(
-  getData(ibcf_eval_scheme, "train"),
+  getData(eval_scheme, "train"),
   method = "IBCF",
   parameter = list(method = "Cosine", k = 30)  # k = number of neighbors
 )
 
 ibcf_predictions <- predict(
   ibcf_model,
-  getData(ibcf_eval_scheme, "known"),
+  getData(eval_scheme, "known"),
   type = "topNList",
   n = 5
 )
 
 
 ibcf_eval_results <- evaluate(
-  ibcf_eval_scheme,
+  eval_scheme,
   method = "IBCF",
   type = "topNList",
   n = c(1, 3, 5, 10)
