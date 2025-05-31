@@ -29,7 +29,7 @@ clean_data <- data %>%
 
 # Optional: Convert InvoiceDate to Date format
 clean_data <- clean_data %>%
-  mutate(InvoiceDate = ymd_hms(InvoiceDate))  # if it's in "day-month-year hour:min" format
+  mutate(InvoiceDate = ymd_hms(InvoiceDate))
 
 # Save cleaned data to a CSV file inside the cleaned_data folder
 write_csv(clean_data, "C:/Users/lesle/source/repos/DataquestRcSys2025/cleaned_data/clean_data.csv")
