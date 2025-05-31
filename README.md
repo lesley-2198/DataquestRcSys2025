@@ -38,15 +38,15 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 - ✅ **Implemented User-based Collaborative Filtering** (UBCF) using R's `recommenderlab`
 - ✅ **Evaluated UBCF recommender** (precision, recall)
 - ✅ **Implemented Item-Based Collaborative Filtering** (IBCF) using R's `recommenderlab`
+- ✅ **Evaluated IBCF recommender** (precision, recall)
+- ✅ **Compared UBCF vs IBCF performance** (side-by-side analysis)
+- ✅ **Built baseline Hybrid recommender system** (merged top-N lists from UBCF + IBCF)
 
 ---
 
 ## 🔜 Upcoming Tasks
 
-
-- [ ] Evaluate IBCF recommender
-- [ ] Compare the two CF recommender systems
-- [ ] Build hybrid recommender systems (R + Python)
+- [ ] Tune hybrid recommender with optimized weighting
 - [ ] Incorporate Python logic (matrix factorization or ensemble logic)
 - [ ] Visualize performance comparisons
 - [ ] Prepare presentation materials
