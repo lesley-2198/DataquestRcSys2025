@@ -41,12 +41,12 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 - ✅ **Evaluated IBCF recommender** (precision, recall)
 - ✅ **Compared UBCF vs IBCF performance** (side-by-side analysis)
 - ✅ **Built baseline Hybrid recommender system** (merged top-N lists from UBCF + IBCF)
+- ✅ **Adjusted hybrid voting mechanism based on evaluation performance** (Item-Based CF (70%) over User-Based CF (30%))
 
 ---
 
 ## 🔜 Upcoming Tasks
 
-- [ ] Tune hybrid recommender with optimized weighting
 - [ ] Incorporate Python logic (matrix factorization or ensemble logic)
 - [ ] Visualize performance comparisons
 - [ ] Prepare presentation materials
