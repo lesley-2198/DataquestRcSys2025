@@ -1,5 +1,5 @@
 library(recommenderlab)
-library(tidyverse)  # Optional, but useful for data manipulation
+#library(tidyverse)  # Optional, but useful for data manipulation
 
 # Convert to matrix and set rownames
 item_matrix <- as.matrix(user_item_matrix[,-1])  # Remove CustomerID column
