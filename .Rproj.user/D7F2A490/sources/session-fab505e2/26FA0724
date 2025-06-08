@@ -1,0 +1,26 @@
+{
+    "id": "26FA0724",
+    "path": "C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/full_weighted_hybrid_recommender.R",
+    "project_path": "R_scripts/full_weighted_hybrid_recommender.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1749395146429.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "89,26",
+        "scrollLine": "79"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1749402666,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1749402666513,
+    "read_only": false,
+    "read_only_alternatives": []
+}
