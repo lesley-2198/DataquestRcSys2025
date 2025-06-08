@@ -20,9 +20,8 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 ```
 .
 ├── cleaned_data/              # Cleaned datasets
-├── python_scripts/            # Python scripts
-├── raw_data.csv               # datasets
-├── R_scripts/                 # R and Python scripts
+├── raw_data                   # datasets
+├── R_scripts/                 # R scripts
 ├── visuals/                   # R scripts
 ├── README.md                  # Project documentation
 └── .gitignore                 # Git tracking exclusions
@@ -32,24 +31,26 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 
 ## ✅ Completed Milestones
 
-- ✅ **Data cleaning** using R (missing values, returns, invalid prices)
-- ✅ **Exploratory Data Analysis** (top products, top customers, quantity distributions)
-- ✅ **Popularity-based recommendation** (global and group-specific)
-- ✅ **Implemented User-based Collaborative Filtering** (UBCF) using R's `recommenderlab`
-- ✅ **Evaluated UBCF recommender** (precision, recall)
-- ✅ **Implemented Item-Based Collaborative Filtering** (IBCF) using R's `recommenderlab`
-- ✅ **Evaluated IBCF recommender** (precision, recall)
-- ✅ **Compared UBCF vs IBCF performance** (side-by-side analysis)
-- ✅ **Built baseline Hybrid recommender system** (merged top-N lists from UBCF + IBCF)
-- ✅ **Adjusted hybrid voting mechanism based on evaluation performance** (Item-Based CF (70%) over User-Based CF (30%))
+- ✅ **Data cleaning** using R (missing values, returns, invalid prices)  
+- ✅ **Exploratory Data Analysis** (top products, top customers, quantity distributions)  
+- ✅ **Popularity-based recommendation** (global and group-specific)  
+- ✅ **Implemented User-based Collaborative Filtering** (UBCF) using R's `recommenderlab`  
+- ✅ **Evaluated UBCF recommender** (precision, recall)  
+- ✅ **Implemented Item-Based Collaborative Filtering** (IBCF) using R's `recommenderlab`  
+- ✅ **Evaluated IBCF recommender** (precision, recall)  
+- ✅ **Compared UBCF vs IBCF performance** (side-by-side analysis)  
+- ✅ **Built baseline Hybrid recommender system** (merged top-N lists from UBCF + IBCF)  
+- ✅ **Adjusted hybrid voting mechanism based on evaluation performance** (Item-Based CF 70–80% weighted)  
+- ✅ **Integrated group-based popularity signals** (by country and season/month) into hybrid recommender  
+- ✅ **Finalized 4-signal hybrid recommender** (UBCF + IBCF + regional popularity + seasonal popularity) achieving **Precision@5 = 0.0181**, **Recall@5 = 0.0906**
 
 ---
 
 ## 🔜 Upcoming Tasks
-
-- [ ] Incorporate Python logic (matrix factorization or ensemble logic)
-- [ ] Visualize performance comparisons
+  
+- [ ] Visualize performance comparisons  
 - [ ] Prepare presentation materials
+- [ ] Incorporate Python logic (matrix factorization or ensemble logic) for more precision, personalization and personal skill development & tech 
 
 ---
 
