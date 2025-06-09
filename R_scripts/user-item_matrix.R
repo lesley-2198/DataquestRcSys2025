@@ -1,5 +1,3 @@
-library(tidyverse)
-
 # Summarize total quantity per customer-item pair
 customer_item <- clean_data %>%
   group_by(CustomerID, Description) %>%

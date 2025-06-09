@@ -1,7 +1,3 @@
-install.packages("recommenderlab")
-library(recommenderlab)
-library(tidyverse)
-
 # Remove CustomerID column and convert to matrix
 item_matrix <- as.matrix(user_item_matrix[,-1])
 rownames(item_matrix) <- user_item_matrix$CustomerID

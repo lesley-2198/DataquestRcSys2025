@@ -1,5 +1,3 @@
-library(lubridate)
-
 # Convert InvoiceDate to date-time if necessary
 clean_data <- clean_data %>%
   mutate(InvoiceDate = ymd_hms(InvoiceDate))  # or ymd() if no time

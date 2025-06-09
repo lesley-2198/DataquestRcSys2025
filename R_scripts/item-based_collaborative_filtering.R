@@ -1,5 +1,3 @@
-library(recommenderlab)
-
 # Convert the item matrix to realRatingMatrix (required for recommenderlab)
 rating_matrix <- as(item_matrix, "realRatingMatrix")
 

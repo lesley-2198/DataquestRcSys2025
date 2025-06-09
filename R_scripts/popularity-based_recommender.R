@@ -1,5 +1,3 @@
-library(tidyverse)
-
 # Top products by quantity purchased
 top_products <- clean_data %>%
   group_by(Description) %>%

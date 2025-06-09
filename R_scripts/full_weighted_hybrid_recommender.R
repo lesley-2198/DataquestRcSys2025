@@ -1,5 +1,3 @@
-library(recommenderlab)
-
 get_full_hybrid_topN <- function(
     ubcf_list, ibcf_list, user_meta,
     country_pop_list, month_pop_list,

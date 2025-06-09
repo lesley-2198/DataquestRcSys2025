@@ -1,5 +1,3 @@
-library(recommenderlab)
-
 # 1. Predict top-10 items using both models
 ubcf_topN <- predict(ubcf_model, getData(eval_scheme, "known"), type = "topNList", n = 10)
 ibcf_topN <- predict(ibcf_model, getData(eval_scheme, "known"), type = "topNList", n = 10)

@@ -1,6 +1,3 @@
-# Load necessary package
-library(recommenderlab)
-
 # 1. Generate top-N predictions from UBCF and IBCF
 ubcf_model <- Recommender(getData(eval_scheme, "train"), method = "UBCF", parameter = list(method = "Cosine", nn = 30))
 ibcf_model <- Recommender(getData(eval_scheme, "train"), method = "IBCF", parameter = list(method = "Cosine", k = 30))

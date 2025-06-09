@@ -1,5 +1,3 @@
-library(recommenderlab)
-
 # UBCF evaluation (explicitly rerun or extract from combined)
 ubcf_eval_results <- evaluate(
   x = eval_scheme,
