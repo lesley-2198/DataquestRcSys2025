@@ -5,6 +5,8 @@ library(tidyverse)
 library(recommenderlab)
 library(lubridate)
 library(readxl)
+library(ggplot2)
+library(dplyr)
 
 # 2. Import required data manually
 

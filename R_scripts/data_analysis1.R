@@ -54,16 +54,3 @@ clean_data %>%
 ggplot(clean_data, aes(x = Quantity)) +
   geom_histogram(bins = 30) +
   labs(title = "Distribution of Quantity Purchased")
-
-
-
-
-
-
-
-
-
-
-
-
-
