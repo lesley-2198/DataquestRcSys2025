@@ -5,7 +5,6 @@ rownames(item_matrix) <- user_item_matrix$CustomerID
 # Convert to binaryRatingMatrix for implicit data
 binary_matrix <- as(item_matrix, "binaryRatingMatrix")
 
-
 eval_scheme <- evaluationScheme(
   binary_matrix,
   method = "split",
@@ -13,8 +12,6 @@ eval_scheme <- evaluationScheme(
   given = -1,         # Use all known interactions in test users
   goodRating = 1      # Define positive interaction
 )
-
-
 
 ibcf_model <- Recommender(
   getData(eval_scheme, "train"),
@@ -29,7 +26,6 @@ ibcf_predictions <- predict(
   n = 5
 )
 
-
 ibcf_eval_results <- evaluate(
   eval_scheme,
   method = "IBCF",
@@ -37,9 +33,39 @@ ibcf_eval_results <- evaluate(
   n = c(1, 3, 5, 10)
 )
 
-
 ibcf_summary <- avg(ibcf_eval_results)
 print(ibcf_summary)
 
-
 plot(ibcf_eval_results, annotate = TRUE, legend = "topright")
+
+# Compute item-item cosine similarity matrix from binary matrix
+item_sim_matrix <- similarity(binary_matrix, method = "cosine", which = "items")
+
+# Extract and clean similarity values
+item_sim_values <- as.vector(item_sim_matrix)
+item_sim_values <- item_sim_values[item_sim_values < 1]  # remove self-similarities
+
+# Histogram
+p1 <- ggplot(data.frame(similarity = item_sim_values), aes(x = similarity)) +
+  geom_histogram(bins = 50, fill = "#E69F00", color = "white", alpha = 0.8) +
+  theme_minimal() +
+  labs(
+    title = "Item-Item Similarity (IBCF) - Histogram",
+    x = "Similarity Score",
+    y = "Frequency"
+  )
+
+# Density (Line) Plot
+p2 <- ggplot(data.frame(similarity = item_sim_values), aes(x = similarity)) +
+  geom_density(color = "#E69F00", size = 1.2, fill = "#E69F00", alpha = 0.3) +
+  theme_minimal() +
+  labs(
+    title = "Item-Item Similarity (IBCF) - Density Plot",
+    x = "Similarity Score",
+    y = "Density"
+  )
+
+p1 + p2  # Combine plots horizontally
+
+combined_plot <- p1 + p2
+ggsave("visuals/item_similarity_side_by_side.png", combined_plot, width = 12, height = 4, dpi = 300)

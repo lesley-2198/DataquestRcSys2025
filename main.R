@@ -7,6 +7,7 @@ library(lubridate)
 library(readxl)
 library(ggplot2)
 library(dplyr)
+library(patchwork)
 
 # 2. Import required data manually
 
