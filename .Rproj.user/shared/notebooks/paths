@@ -6,6 +6,7 @@ C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/full_weighted_hybrid_re
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/group-specific_popularity_recommender.R="D9092DDE"
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/group-specific_system_evaluatoin_scheme.R="D6E93976"
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/hybrid_via_score_averaging.R="70732525"
+C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/hybrid_via_score_averaging_(weighted).R="DED7220F"
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/ibcf_evaluation_scheme.R="274AEE52"
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/item-based_collaborative_filtering.R="6C787E5B"
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/month-country_popularity_recommender.R="46977378"
@@ -14,4 +15,5 @@ C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/popularity_system_evalu
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/ubcf_evaluation_scheme.R="03125FC8"
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/user-based_collaborative_filtering.R="812561E5"
 C:/Users/lesle/source/repos/DataquestRcSys2025/R_scripts/user-item_matrix.R="99388E72"
+C:/Users/lesle/source/repos/DataquestRcSys2025/comparison_of_cf_models.R="023FAC40"
 C:/Users/lesle/source/repos/DataquestRcSys2025/main.R="9BE4351B"

@@ -1,5 +1,7 @@
 actual_matrix <- as(getData(eval_scheme, "unknown"), "matrix")
-
+# Convert list to matrix
+pred_matrix <- do.call(rbind, user_country_month_recs)
+pred_matrix <- t(pred_matrix)  # Now it's [items x users]
 
 # Country-specific top 5 items for each user
 user_country_recs <- sapply(rownames(actual_matrix), function(user_id) {
@@ -24,26 +26,26 @@ user_country_month_recs <- sapply(rownames(actual_matrix), function(user_id) {
   return(names(top_items)[1:5])
 })
 
-# Precision@5 for per-user recommendations
-precision_at_5 <- function(actual_matrix, recommendations_list) {
-  precisions <- sapply(1:nrow(actual_matrix), function(i) {
-    actual_items <- names(which(actual_matrix[i, ] > 0))
-    recommended <- recommendations_list[[i]]
-    if (length(actual_items) == 0 || all(is.na(recommended))) return(NA)
-    hits <- sum(recommended %in% actual_items)
-    return(hits / 5)
+# Precision@n for per-user recommendations
+precision_at_n <- function(predicted, actual, n = 5) {
+  precisions <- sapply(1:ncol(predicted), function(i) {
+    pred_items <- predicted[, i]
+    actual_items_user <- names(which(actual[i, ] > 0))
+    if (length(actual_items_user) == 0 || all(is.na(pred_items))) return(NA)
+    hits <- sum(pred_items %in% actual_items_user)
+    return(hits / n)
   })
   mean(precisions, na.rm = TRUE)
 }
 
-# Recall@5
-recall_at_5 <- function(actual_matrix, recommendations_list) {
-  recalls <- sapply(1:nrow(actual_matrix), function(i) {
-    actual_items <- names(which(actual_matrix[i, ] > 0))
-    recommended <- recommendations_list[[i]]
-    if (length(actual_items) == 0 || all(is.na(recommended))) return(NA)
-    hits <- sum(recommended %in% actual_items)
-    return(hits / length(actual_items))
+# Recall@n
+recall_at_n <- function(predicted, actual, n = 5) {
+  recalls <- sapply(1:ncol(predicted), function(i) {
+    pred_items <- predicted[, i]
+    actual_items_user <- names(which(actual[i, ] > 0))
+    if (length(actual_items_user) == 0 || all(is.na(pred_items))) return(NA)
+    hits <- sum(pred_items %in% actual_items_user)
+    return(hits / length(actual_items_user))
   })
   mean(recalls, na.rm = TRUE)
 }
@@ -61,3 +63,10 @@ country_month_recall_5 <- recall_at_5(actual_matrix, user_country_month_recs)
 
 print(paste("Country + Month-Based Precision@5:", round(country_month_precision_5, 4)))
 print(paste("Country + Month-Based Recall@5:", round(country_month_recall_5, 4)))
+
+# COUNTRY + MONTH @10
+country_month_precision_10 <- precision_at_n(pred_matrix, actual_matrix, n = 10)
+country_month_recall_10 <- recall_at_n(pred_matrix, actual_matrix, n = 10)
+
+print(paste("Country + Month-Based Precision@10:", round(country_month_precision_10, 4)))
+print(paste("Country + Month-Based Recall@10:", round(country_month_recall_10, 4)))
