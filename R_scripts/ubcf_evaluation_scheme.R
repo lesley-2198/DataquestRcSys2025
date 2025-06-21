@@ -19,6 +19,7 @@ ubcf_eval_results <- evaluate(eval_scheme, method = "UBCF", type = "topNList", n
 
 # View summary of evaluation (precision, recall, etc.)
 avg(ubcf_eval_results)
+print(ubcf_results)
 
 # Optional: plot the results
 plot(ubcf_eval_results, annotate = TRUE, legend = "topleft")

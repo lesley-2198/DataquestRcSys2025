@@ -69,3 +69,7 @@ p1 + p2  # Combine plots horizontally
 
 combined_plot <- p1 + p2
 ggsave("visuals/item_similarity_side_by_side.png", combined_plot, width = 12, height = 4, dpi = 300)
+
+print(ibcf_summary)
+precision_at_5 <- ibcf_summary[3, "precision"]
+recall_at_5 <- ibcf_summary[3, "recall"]

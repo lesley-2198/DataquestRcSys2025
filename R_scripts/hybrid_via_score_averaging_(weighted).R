@@ -55,3 +55,32 @@ recall_5 <- recall_at_5(topN_5, actual_items)
 
 print(paste("Weighted Hybrid Precision@5:", round(precision_5, 4)))
 print(paste("Weighted Hybrid Recall@5:", round(recall_5, 4)))
+
+#Get graph visualizing the impact of weighting on hybrid recommender performance 
+# Create a dataframe for the two models
+hybrid_comparison <- data.frame(
+  Model = rep(c("Hybrid", "Weighted Hybrid"), each = 2),
+  Metric = rep(c("Precision@5", "Recall@5"), times = 2),
+  Value = c(0.0068, 0.0341, 0.0153, 0.0765)
+)
+
+# Convert percentages for labels
+hybrid_comparison$Label <- paste0(round(hybrid_comparison$Value * 100, 2), "%")
+
+# Plot grouped bar chart
+ggplot(hybrid_comparison, aes(x = Metric, y = Value, fill = Model)) +
+  geom_col(position = position_dodge(width = 0.7), width = 0.6) +
+  geom_text(aes(label = Label),
+            position = position_dodge(width = 0.7),
+            vjust = -0.5, size = 4) +
+  scale_fill_manual(values = c("#7aa6c2", "#f4a261")) +
+  labs(
+    title = "Performance Comparison: Hybrid vs Weighted Hybrid Recommender",
+    y = "Score",
+    x = "Metric",
+    fill = "Model"
+  ) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  theme_minimal(base_size = 13)
+
+ggsave("visuals/hybrid_model_comparison_percent_clean.png", width = 10, height = 5, dpi = 300)

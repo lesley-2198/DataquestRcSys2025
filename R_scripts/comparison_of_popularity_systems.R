@@ -1,7 +1,3 @@
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-
 # Original scores (in decimal form)
 popularity_results <- data.frame(
   Model = c("Global", "Country-Based", "Country + Month"),
