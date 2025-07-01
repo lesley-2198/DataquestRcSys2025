@@ -1,6 +1,6 @@
 # 🧠 Recommender Systems Project – Dataquest 2025 Challenge
 
-Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challenge**. This project focuses on exploring different recommendation techniques to suggest relevant products to users based on historical retail transaction data.
+This project was developed for the **Dataquest 2025 Recommender Systems Challenge**. It explores various techniques for product recommendation—starting from simple popularity models and progressing to advanced hybrid systems that incorporate **user behavior, item relationships, regional patterns, and seasonal trends.**
 
 ---
 
@@ -8,23 +8,22 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 
 | Tool             | Purpose |
 |------------------|---------|
-| **R & RStudio**  | Data cleaning, wrangling, modeling, visualization |
-| **Python & VS Code** | Future integration for hybrid modeling & evaluation |
-| **Excel**        | Optional visualization support |
-| **PowerPoint**   | Final presentation and storytelling |
+| **R & RStudio**  | Data processing, modeling, evaluation, and visualization |
+| **README.md/MS Word** | Project documentation and interpretation |
 
 ---
 
 ## 🗂️ Project Structure
 
 ```
-├── DataquestRcSys2025.Rproj   # R project file
-├── cleaned_data/              # Cleaned datasets
-├── raw_data                   # datasets
-├── R_scripts/                 # R scripts
-├── visuals/                   # Charts, evaluation plots
-├── README.md                  # Project documentation
-└── .gitignore                 # Git tracking exclusions
+├── DataquestRcSys2025.Rproj     # R project file
+├── raw_data/                    # Raw transaction data
+├── cleaned_data/                # Cleaned datasets for modeling
+├── R_scripts/                   # Modular R scripts for each model
+├── visuals/                     # All plots and evaluation images
+├── documentation/               # Final project report and analysis
+├── README.md                    # Project summary
+└── .gitignore                   # Excluded files from version control
 ```
 
 ---
@@ -34,18 +33,19 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 ### 🔹 `cleaned_data/`
 | File                     | Description |
 |--------------------------|-------------|
-| `clean_data.xlsx`        | Full cleaned dataset used for all modeling |
+| `clean_data.xlsx`        | Cleaned dataset used for modeling |
 | `customer_item.xlsx`     | User-item purchase matrix |
-| `user_item_matrix.xlsx`  | Binary matrix for collaborative filtering |
+| `user_item_matrix.xlsx`  | Binary matrix (for collaborative filtering) |
 | `popular_by_country.xlsx`| Top items per country (group-specific popularity) |
-| `top_products.xlsx`      | Overall top purchased products |
+| `top_products.xlsx`      | Globally most purchased products |
 
 ---
 
 ### 🔹 `R_scripts/`
 | Script File                                | Description |
 |--------------------------------------------|-------------|
-| `data_analysis1.R`                         | Initial EDA and quantity distribution |
+| `main.R`                                   | Master script - runs full pipeline |
+| `data_analysis1.R`                         | EDA and quantity distribution |
 | `user_based_collaborative_filtering.R`     | UBCF implementation and evaluation |
 | `item_based_collaborative_filtering.R`     | IBCF implementation and evaluation |
 | `comparison_of_collab_filters.R`           | Side-by-side comparison of UBCF vs IBCF |
@@ -62,44 +62,43 @@ Welcome to the **Recommender Systems** project for the **Dataquest 2025 Challeng
 
 ## ✅ Completed Milestones
 
-- ✅ **Data cleaning** using R (missing values, returns, invalid prices)  
-- ✅ **Exploratory Data Analysis** (top products, top customers, quantity distributions)  
-- ✅ **Popularity-based recommendation** (global and group-specific)  
-- ✅ **Implemented User-based Collaborative Filtering** (UBCF) using R's `recommenderlab`  
-- ✅ **Evaluated UBCF recommender** (precision, recall)  
-- ✅ **Implemented Item-Based Collaborative Filtering** (IBCF) using R's `recommenderlab`  
-- ✅ **Evaluated IBCF recommender** (precision, recall)  
-- ✅ **Compared UBCF vs IBCF performance** (side-by-side analysis)  
-- ✅ **Built baseline Hybrid recommender system** (merged top-N lists from UBCF + IBCF)  
-- ✅ **Adjusted hybrid voting mechanism based on evaluation performance** (Item-Based CF 70–80% weighted)  
-- ✅ **Integrated group-based popularity signals** (by country and season/month) into hybrid recommender  
-- ✅ **Finalized 4-signal hybrid recommender** (UBCF + IBCF + regional popularity + seasonal popularity) achieving **Precision@5 = 0.0181**, **Recall@5 = 0.0906**
+- ✅ **Data cleaning:** removed nulls, returns,
+- ✅ **EDA:** top products, top customers, quantity trends
+- ✅ **Popularity models:** global, country, and seasonal logic
+- ✅ **UBCF & IBCF:** implemented using recommenderlab, with evaluation
+- ✅ **Performance analysis:** compared precision and recall metrics
+- ✅ **Hybrid systems:** baseline merge, weighted hybrid, and full hybrid (4 signals)
+- ✅ **Final model:** Weighted hybrid of UBCF + IBCF + country + month
+- ✅ **Visualization:** graphs for similarity, performance, seasonal trends
+- ✅ **Interpretation:** technical report explaining trade-offs and outcomes
 
 ---
 
-## 📌 Finalization Tasks
-
-- [ ] Visualize and compare performance of all models (bar charts or tables)
-- [ ] Interpret results and explain improvements from each technique
-- [ ] Prepare final presentation materials (slides, charts, notes)
-- [ ] (Later) Explore matrix factorization or model stacking in Python
-
----
 ## 📊 Model Performance (Precision@5 & Recall@5)
 
 | Model                        | Precision@5 | Recall@5  |
 |------------------------------|-------------|-----------|
+| Global Popularity            | 0.0021      | 0.006     |
+| Country-Based Popularity     | 0.0005      | 0.0024    |
+| Month + Country Popularity   | 0.0035      | 0.0177    |
 | User-Based CF (UBCF)         | 0.0014      | 0.0071    |
-| Item-Based CF (IBCF)         | 0.0167      | 0.0835    |
-| Hybrid (UBCF + IBCF, 70/30)  | 0.0167      | 0.0835    |
-| Hybrid + Group Popularity    | **0.0181**  | **0.0906** |
+| Item-Based CF (IBCF)         | 0.0220      | 0.1090    |
+| Hybrid (UBCF + IBCF, 70/30)  | 0.0195      | 0.098     |
+| Hybrid + Group Popularity    | 0.0195      | 0.098     |
+> 🔍 Although IBCF performed best in precision and recall, I preferred the full hybrid model for its contextual adaptability to seasonal and regional patterns—making it better suited for real-world deployment.
+---
+
+## 🔮 Future Work
+
+- [ ] Introduce matrix factorization or model stacking (Python)
+- [ ] Explore external visualization tools (Power BI, Tableau)
+- [ ] Experiment with online/offline evaluation metrics (MAP@K, DCG)
 
 ---
 
 ## 📁 .gitignore Description
 
-The `.gitignore` file ensures that unnecessary or sensitive files are not tracked in version control.  
-It currently excludes:
+The `.gitignore` file excludes local environment files and history logs:
 
 ```gitignore
 # R session files
@@ -147,6 +146,12 @@ This project was developed as part of the **DataQuest 2025 Recommender Systems C
 1. **Train** a recommender system machine learning model of your choice to solve this challenge, using the dataset provided.  
 2. **Show accuracy and beyond-accuracy measures** to motivate why your model is expected to work well.  
 3. **Describe additional considerations** expected if this system is used in a live/production environment.
+
+---
+
+### ✅ Status
+✅ Project complete — documentation, modeling, and interpretation finalized.
+Next steps will include optional enhancements in Python for deeper evaluation.
 
 ---
 
