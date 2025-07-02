@@ -111,13 +111,6 @@ cleaned_data/.Rhistory
 ```
 ---
 
-## 📌 Notes
-
-This README will be updated as the project progresses.
-The core R-based recommender system is now complete. The current focus is on interpreting results, visualizing model comparisons, and preparing clear documentation. Python integration (matrix factorization or stacking) will be explored later as an extension for deeper personalization.
-
----
-
 ## 📚 References & Challenge Context
 
 ### 📘 Source
